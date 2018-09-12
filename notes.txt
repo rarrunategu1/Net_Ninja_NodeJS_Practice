@@ -11,3 +11,11 @@ Inner workings
 
 Creating a web server
 -routing, express, templating
+
+HOW TO INSTALL NODE JS
+Go to nodejs.org and download one
+Note that when downloading pick the one that says LTS (Long Term Support) - because it's the most stable
+
+in the command line write node -v to find out what version you have
+
+*if you're in the folder where your app is, then you can run it on the command line by just using node app.  You don't need to do node app.js
