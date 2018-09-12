@@ -1,0 +1,13 @@
+WHAT IS NODE.JS
+a javascript runtime built on Chrome's V8 Javascript engine.
+(Allows us to run javascripton a computer/serveer)
+It's event driven and non-blocking. -very fast since it's nonblocking and since it uses V8 engine   
+(Read, delete and update files; easily communicate with a database)
+Its package ecosystem, npm, is the largesst ecosystem of open source libraries in the world.
+Great for real time services - Chatrooms
+
+Inner workings
+-v8 engine, modules, event emiiter, fs
+
+Creating a web server
+-routing, express, templating
