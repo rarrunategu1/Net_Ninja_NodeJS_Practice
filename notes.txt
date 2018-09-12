@@ -19,3 +19,64 @@ Note that when downloading pick the one that says LTS (Long Term Support) - beca
 in the command line write node -v to find out what version you have
 
 *if you're in the folder where your app is, then you can run it on the command line by just using node app.  You don't need to do node app.js
+
+V8 ENGINE
+What is a javascript engine?
+    -computers don't understand javascript and so the engine converts it into machine code so that it is understood.
+    -this machine code is not good for programming because it's messy and hard to understand.  It's how computers talk.
+    
+    Node JS is written in C++ because it uses the v8 engine (embedded in it) which is also written in C++ but it allows us to write javascript which can run on a computer or server
+    
+THE GLOBAL OBJECT
+When writing javascript in browser, the global object is the window object and we can access properties and methods like alert, settimeout etc.
+When writing it in node, it's no longer a window object.  It's a global object that still gives us access to some methods we can use in node js
+    
+    
+on node we can
+
+console.log
+
+setTimeout -
+setTimeout(function(){
+    console.log('3 seconds have passed');
+}, 3000);
+
+setInterval -
+var time = 0;
+setInterval(function() {
+    time +=2;
+ console.log(time + '3 seconds have passed');
+}, 2000); //this will give you something like this when you run it:
+23 seconds have passed
+43 seconds have passed
+63 seconds have passed
+83 seconds have passed
+103 seconds have passed
+123 seconds have passed
+143 seconds have passed
+163 seconds have passed
+183 seconds have passed
+203 seconds have passed
+223 seconds have passed
+ctrl C will stop it in the terminal
+
+An example of using a timer is:
+var time = 0;
+
+var timer = setInterval(function() {
+    time +=2;
+ console.log(time + '3 seconds have passed');
+ if (time > 5){  //after 5 seconds it'll stop running the function
+     clearInterval(timer);
+ }
+}, 2000); 
+
+Enter the following on the app.js file:
+
+console.log(__dirname); //when you run the code it will return the directory youre in
+
+console.log(__filename);  //this will return the file name youre working on.
+
+Look up in google -> node.js 'the version you have' documentation  - to find more information on global objects in node
+
+
