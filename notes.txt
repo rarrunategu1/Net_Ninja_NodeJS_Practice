@@ -274,3 +274,32 @@ fs.readFile('readme.txt', 'utf8', function(err, data){
    fs.writeFile('writeMe.txt', data);
 }); //since we removed the Sync it's now asynchronous and we need a call back function to fire when the process is complete
 //it's also nonblocking and won't stop the rest of the code beneath, it just continues and will fire the function when it's ready
+
+
+
+CREATE AND REMOVE DIRECTORIES
+
+how to delete a file
+var fs = require('fs');  
+
+fs.unlink('writeMe.txt'); //using the unlink method will delete a file
+
+
+how to create a directory
+-you can do this sync or async
+var fs = require('fs');  
+
+This is Sync(blocking)
+fs.mkdirSync('stuff'); //this makes a directory 'stuff' Synchronously(blocking)
+//to delete:
+fs.rmdirSync('stuff');
+
+This is async(non blocking)
+var fs = require('fs');  
+
+fs.mkdir('stuff', function(){ //this makes a directory 'stuff' async(nonblocking)
+    fs.readFile('readme.txt', 'utf8', function(err, data){ //will read readme.txt and convert to readable txt into data
+        fs.writeFile('./stuff/writeMe.txt', data); //will write a new file inside the new directory stuff with the contents of readme.txt
+        
+    });
+}); 

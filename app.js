@@ -1,7 +1,6 @@
-var fs = require('fs');  //common practice is to set the variable name to the module name
+var fs = require('fs');  
 
-fs.readFile('readme.txt', 'utf8', function(err, data){
-   fs.writeFile('writeMe.txt', data);
-}); //since we removed the Sync it's now asynchronous and we need a call back function to fire when the process is complete
-//it's also nonblocking and won't stop the rest of the code beneath, it just continues and will fire the function when it's ready
 
+fs.unlink('./stuff/writeMe.txt', function(){ //removes the file first because you can't remove the directly unless it's empty
+fs.rmdir('stuff'); //then after ti removes it it will fire a function to remove the directory as well
+});
