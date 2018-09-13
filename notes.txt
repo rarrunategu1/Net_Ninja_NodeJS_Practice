@@ -79,4 +79,29 @@ console.log(__filename);  //this will return the file name youre working on.
 
 Look up in google -> node.js 'the version you have' documentation  - to find more information on global objects in node
 
+FUNCTION EXPRESSIONS
 
+//normal function statement
+function sayHi() {
+    console.log('hi');
+}
+
+sayHi();
+
+//function expression
+var sayBye = function(){
+    console.log('bye');
+};
+
+sayBye();
+
+//a function within a function
+function callFunction(fun){ //this is a function that takes a function as a parameter
+    fun(); //this calls that function
+}
+
+//function expression
+var sayBye = function(){
+    console.log('bye');
+};
+callFunction(sayBye); //when you call this it uses the sayBye function in the callFunction so when you run it, it returns bye
