@@ -105,3 +105,36 @@ var sayBye = function(){
     console.log('bye');
 };
 callFunction(sayBye); //when you call this it uses the sayBye function in the callFunction so when you run it, it returns bye
+
+
+MODULES AND REQUIRE()
+
+You would usually break up a node js file into modules, so you
+can create a module that counts something and call upon that module
+when you need to count something.
+
+A module is just another javascript file
+
+example of count module in count.js file
+var counter = function(arr){
+    return 'There are ' + arr.length + ' elements in this array';
+    
+};
+
+console.log(counter(['shaun', 'crystal', 'ryu']));
+
+if you want to run the count file in the app. js do the following:
+
+in app.js
+var counter = require('./count');
+
+console.log(counter(['shaun', 'crystal', 'ryu']));
+
+In count.js
+var counter = function(arr){
+    return 'There are ' + arr.length + ' elements in this array';
+    
+};
+
+module.exports = counter; //this makes the counter function available outside of this module so I can require it in my app.js
+
