@@ -1,22 +1,7 @@
-var events = require('events');
-var util = require('util');
+var fs = require('fs');  //common practice is to set the variable name to the module name
 
-var Person = function(name){ //person is an object constructor
-    this.name = name;
-};
+fs.readFile('readme.txt', 'utf8', function(err, data){
+   fs.writeFile('writeMe.txt', data);
+}); //since we removed the Sync it's now asynchronous and we need a call back function to fire when the process is complete
+//it's also nonblocking and won't stop the rest of the code beneath, it just continues and will fire the function when it's ready
 
-util.inherits(Person, events.EventEmitter) //this allows us to make the Person variable inherit the eventemitter so that we can attach custom events to certain people.
-
-var james = new Person('james');
-var mary = new Person('mary');
-var rose = new Person('rose');
-
-var people = [james, mary, rose];
-
-people.forEach(function(person){
-    person.on('speak', function(mssg){
-       console.log(person.name + ' said: ' + mssg); 
-    });
-});
-
-james.emit('speak', 'hey dudes');

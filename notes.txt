@@ -241,3 +241,36 @@ people.forEach(function(person){
 });
 
 james.emit('speak', 'hey dudes');
+
+
+
+READING AND WRITING FILES
+using node core module fs
+
+How to read a file:
+in app.js
+var fs = require('fs');  //common practice is to set the variable name to the module name
+
+//method that will go out and read readme.txt file below:
+var readme = fs.readFileSync('readme.txt', 'utf8'); //this is blocking code that will not allow anything else till it's complete, but there is an asynchrynous versio that is nonblocking
+//utf8 is an encodent that translates the binary data its reading from the readme.txt file into something I can understand
+console.log(readme);
+
+//will return contents of readme.txt
+
+How to write a file
+var fs = require('fs');  //common practice is to set the variable name to the module name
+
+//method that will go out and read readme.txt file below:
+var readme = fs.readFileSync('readme.txt', 'utf8'); //this is blocking code that will not allow anything else till it's complete, but there is an asynchrynous versio that is nonblocking
+//utf8 is an encodent that translates the binary data its reading from the readme.txt file into something I can understand
+fs.writeFileSync('writeMe.txt', readme); //created a new file writeMe.txt from the contents of the readme variable
+
+
+This is asynchronous version of the code that is nonblocking:
+var fs = require('fs');  //common practice is to set the variable name to the module name
+
+fs.readFile('readme.txt', 'utf8', function(err, data){
+   fs.writeFile('writeMe.txt', data);
+}); //since we removed the Sync it's now asynchronous and we need a call back function to fire when the process is complete
+//it's also nonblocking and won't stop the rest of the code beneath, it just continues and will fire the function when it's ready
