@@ -319,3 +319,13 @@ ftp or http is sent from the server to the client via a protocol called TCP, whi
 Ports
 a program running on a computer can listen to requests sent to a particular port number
 if node js is listening to a certain port number on the IP it will respond, but if the request is not there, it won't
+
+CREATING A SERVER
+
+//on the response we can send the data with response headers and the request with request headers
+
+Response Headers
+-Content-Type so that browser knows what to expect - ex. html, json - so that it knows how to deal with it
+-status  - like 200 if ok or 404 if there's an error
+
+
