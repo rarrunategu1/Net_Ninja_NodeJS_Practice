@@ -130,11 +130,71 @@ var counter = require('./count');
 
 console.log(counter(['shaun', 'crystal', 'ryu']));
 
-In count.js
+In count.js //take note that the file name was changed to stuff.js
 var counter = function(arr){
     return 'There are ' + arr.length + ' elements in this array';
     
 };
 
 module.exports = counter; //this makes the counter function available outside of this module so I can require it in my app.js
+
+
+MODULE PATTERNS
+
+What if we want to call multiple modules:
+
+In app.js
+var stuff = require('./stuff');
+
+console.log(stuff.counter(['shaun', 'crystal', 'ryu']));
+console.log(stuff.adder(5,6));
+console.log(stuff.adder(stuff.pi, 5));
+
+in stuff.js
+var counter = function(arr){
+    return 'There are ' + arr.length + ' elements in this array';
+    
+};
+
+var adder = function (a,b){
+    return `The sum of the 2 number is ${a+b}`;  //template string has backticks and it allows us to embed variables or expressions without concatentation
+    };
+    
+var pi = 3.142;
+
+module.exports.counter = counter; //this makes the counter function available outside of this module so I can require it in my app.js
+module.exports.adder = adder;
+module.exports.pi = pi;
+
+You can save some code space by doing the following instead on the stuff.js
+module.exports.counter = function(arr){
+    return 'There are ' + arr.length + ' elements in this array';
+    
+};
+
+module.exports.adder = function (a,b){
+    return `The sum of the 2 number is ${a+b}`;  //template string has backticks and it allows us to embed variables or expressions without concatentation
+    };
+    
+module.exports.pi = 3.142;
+
+
+Or we could do the stuff.js file like this
+var counter = function(arr){
+    return 'There are ' + arr.length + ' elements in this array';
+    
+};
+
+var adder = function (a,b){
+    return `The sum of the 2 number is ${a+b}`;  //template string has backticks and it allows us to embed variables or expressions without concatentation
+    };
+    
+var pi = 3.142;
+
+module.exports = {
+counter: counter,
+adder: adder,
+pi: pi
+});
+
 
