@@ -303,3 +303,19 @@ fs.mkdir('stuff', function(){ //this makes a directory 'stuff' async(nonblocking
         
     });
 }); 
+
+
+CLIENTS AND SERVERS
+
+How does the server communicate with the browser?
+
+A socket is a channel where information can be sent.
+
+ftp is file transfer protocol
+http is used for websites
+
+ftp or http is sent from the server to the client via a protocol called TCP, which splits up the data into smaller sections and transfers the along the socket.  Those sections are called packets
+
+Ports
+a program running on a computer can listen to requests sent to a particular port number
+if node js is listening to a certain port number on the IP it will respond, but if the request is not there, it won't
