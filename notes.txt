@@ -336,3 +336,26 @@ Buffer is a temp spot for a chunk of data that being transferred from one place 
 Stream is just a stream of data that flows from one place to another over time
 
 We can create streams to read and write files on node js which will increase performance
+
+READABLE STREAMS
+
+Writeable stream allows node js to write data to our stream
+Readable stream allows node js to read data from a stream
+Duplex can read and write to a stream
+
+To create a readable stream we need to use a method called createReadStream
+
+Example of readable stream
+var http = require('http');
+var fs = require('fs');
+
+var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8'); //remember that utf8 translates it so its readaable by you, otherwise you'll just get the buffer which is numbers and letters that make no sense
+//createReadStream inherits from the eventEmeitter and there's an event on createReadStream called data that will allow us to listen to any kind of data that is received
+
+myReadStream.on('data', function(chunk){
+    console.log('new chunk received: ');
+    console.log(chunk);
+});
+//the benefit is that we can send the user information one bit at a time instead of waiting for everything to go through.
+
+
