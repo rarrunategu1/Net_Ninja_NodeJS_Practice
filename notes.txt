@@ -580,6 +580,33 @@ app.get('/profile/:id', function(req, res){ //if you change the :id to :name you
 
 app.listen(process.env.PORT, process.env.IP, 3000);
 
+TEMPLATING ENGINES
 
+How do we send back and html page with express?
+app.get('/contact', function(req, res){ 
+res.sendFile(__dirname + '/contact.html');
+});
+
+What if we want to inject dynamic content?
+first install ejs package with npm install ejs -save
+
+var express = require('express');
+
+var app = express(); //this will allow us to fire the express function using the variable app
+
+app.set('view engine', 'ejs'); 
+app.get('/', function(req, res){
+res.sendFile(__dirname + '/index.html');
+});
+app.get('/contact', function(req, res){ 
+res.sendFile(__dirname + '/contact.html');
+});
+
+app.get('/profile/:name', function(req, res){
+var data = {age: 29, job: 'ninja'};
+res.render('viewsprofiles', {person: req.params.name, data: data}); //render basically renders a view to the viewsprofiles.ejs file
+}); //pass data to a view by passing object as a 2nd parameter which is name and data.age.  Those will be referred in the ejs file <%= person &> for ex.
+
+app.listen(process.env.PORT, process.env.IP, 3000);
 
   
