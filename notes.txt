@@ -529,8 +529,13 @@ because it has listed it as a dependency.  You can remove it manually
 if you want to install of the dependencies on someone's package.json, you just do npm install on the command line
 
 
+INSTALLING NODEMON
+
+monitors your application files so that when it's running in a browser and we're listeneing to a server
+and we make a change it restarts the server automatically for us
+
+npm install nodemon -g    will install it globally to use it for whatever we application I have here
   
-  
-  
-  
+so now instead of doing node app to run the app,
+we do nodemon app.js
   
