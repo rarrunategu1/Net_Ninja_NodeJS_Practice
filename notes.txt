@@ -371,3 +371,33 @@ myReadStream.on('data', function(chunk){ //this function fires everytime we rece
 });
 //the benefit is that we can send the user information one bit at a time instead of waiting for everything to go through.
 
+
+PIPES 
+
+a pipe will take data from a read stream and write it into a read stream.
+Instead of listening to an event when a chunk of data is received, the pipe will automatically do it for us and write it
+Pipe can only be used on readable streams
+
+var http = require('http');
+var fs = require('fs');
+
+var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8'); // This reads the file
+var myWriteStream = fs.createWriteStream(__dirname + '/writeMe.txt');
+myReadStream.pipe(myWriteStream);
+
+How to send data to a user:
+
+var http = require('http');
+var fs = require('fs');
+
+var server = http.createServer(function(req, res){//this creates a server and whenever we send a request to the server, then the function will fire
+    console.log('request was made: ' + req.url); //once you go to the ip address and listen in to the port if you write additional /information on the browser it will console.log it.  This may be good for navigating a website
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    var myReadStream = fs.createReadStream(__dirname + '/readme.txt', 'utf8'); // This reads the file
+    myReadStream.pipe(res); //pipes the readstream to the response
+    
+});
+
+server.listen(8080, '0.0.0.0'); //is the port and IP adddress
+console.log('yo dawgs, now listening to port 3000');
+
