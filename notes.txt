@@ -329,3 +329,10 @@ Response Headers
 -status  - like 200 if ok or 404 if there's an error
 
 
+STREAMS AND BUFFERS
+
+Buffer is a temp spot for a chunk of data that being transferred from one place to another
+
+Stream is just a stream of data that flows from one place to another over time
+
+We can create streams to read and write files on node js which will increase performance
