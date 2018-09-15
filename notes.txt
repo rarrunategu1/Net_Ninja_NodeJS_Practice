@@ -496,9 +496,39 @@ console.log('yo dawgs, now listening to port 3000');
   to install express - npm install express on command line
   to uninstall express - npm uninstall express on command line
   
+  PACKAGE.JSON
   
+  This package keeps track of all the packages we have for our app that we depend on
   
-  
+  We can use a command in nodejs to do it for us in the package.json 
+  on command line:
+  npm init  - it will ask a few questions:
+  name: (net_ninja_Nodejs) 
+Sorry, name can no longer contain capital letters.
+name: (net_ninja_Nodejs) net_ninja_nodejs
+version: (1.0.0) 
+description: a little test
+entry point: (app.js) 
+test command: 
+git repository: (https://github.com/rarrunategu1/Net_Ninja_NodeJS_Practice.git) 
+keywords: fun, ninjas
+author: me
+license: (ISC) 
+
+How do we save a package (ex: express) in our package.json?
+npm install express -save
+
+it'll put it in the package.json as an object:
+"homepage": "https://github.com/rarrunategu1/Net_Ninja_NodeJS_Practice#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+    
+At this point if we do npm uninstall express then it will remove it but not from the package.json
+because it has listed it as a dependency.  You can remove it manually
+
+if you want to install of the dependencies on someone's package.json, you just do npm install on the command line
+
+
   
   
   

@@ -1,0 +1,26 @@
+{
+  "name": "net_ninja_nodejs",
+  "version": "1.0.0",
+  "description": "a little test",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rarrunategu1/Net_Ninja_NodeJS_Practice.git"
+  },
+  "keywords": [
+    "fun",
+    "ninjas"
+  ],
+  "author": "me",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rarrunategu1/Net_Ninja_NodeJS_Practice/issues"
+  },
+  "homepage": "https://github.com/rarrunategu1/Net_Ninja_NodeJS_Practice#readme",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
+}
