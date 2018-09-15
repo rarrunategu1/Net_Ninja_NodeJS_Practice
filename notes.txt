@@ -438,4 +438,48 @@ var server = http.createServer(function(req, res){//this creates a server and wh
 server.listen(8080, '0.0.0.0'); //is the port and IP adddress
 console.log('yo dawgs, now listening to port 3000');
 
+BASIC ROUTING
+
+If we don't route then even if the user is entering different urls they'll keep getting the same info. 
+How do we route so that they get info based on their URL. ex. localhost:3000/home or localhost:3000/contact
+
+this code doesn't return with basic routing:
+var http = require('http');
+var fs = require('fs');
+
+var server = http.createServer(function(req, res){//this creates a server and whenever we send a request to the server, then the function will fire
+    console.log('request was made: ' + req.url); //once you go to the ip address and listen in to the port if you write additional /information on the browser it will console.log it.  This may be good for navigating a website
+    res.writeHead(200, {'Content-Type': 'text/plain'}); //use html and it will render it in the browser properly
+        res.end('feed me popcorn'); //res.end expects a string or a buffer so if it's an object we need to create it into a json format string
+});
+
+server.listen(process.env.PORT, process.env.IP, 3000); //is the port and IP adddress
+console.log('yo dawgs, now listening to port 3000');
+
+
+Some basic routing looks like the code below:  Express will handle this much quicker but that will be taught later:
+
+var http = require('http');
+var fs = require('fs');
+
+var server = http.createServer(function(req, res){//this creates a server and whenever we send a request to the server, then the function will fire
+    console.log('request was made: ' + req.url); //once you go to the ip address and listen in to the port if you write additional /information on the browser it will console.log it.  This may be good for navigating a website
+   if(req.url === '/home' || req.url === '/'){
+     res.writeHead(200, {'Content-type': 'text/html'});
+     fs.createReadStream(__dirname + '/index.html').pipe(res);
+   } else if (req.url === '/contact'){
+      res.writeHead(200, {'Content-type': 'text/html'});
+     fs.createReadStream(__dirname + '/contact.html').pipe(res);
+   } else if (req.url === '/api/ninjas'){
+     var ninjas = [{name: 'ryu', age: 20}, {name: 'yoshi', age: 32}];
+     res.writeHead(200, {'Content-type': 'application/json'});
+     res.end(JSON.stringify(ninjas));
+   } else {
+      res.writeHead(404, {'Content-type': 'text/html'});
+     fs.createReadStream(__dirname + '/404.html').pipe(res);
+   }
+   });
+
+server.listen(process.env.PORT, process.env.IP, 3000); //is the port and IP adddress
+console.log('yo dawgs, now listening to port 3000');
 
