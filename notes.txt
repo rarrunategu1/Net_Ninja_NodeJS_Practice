@@ -538,4 +538,28 @@ npm install nodemon -g    will install it globally to use it for whatever we app
   
 so now instead of doing node app to run the app,
 we do nodemon app.js
+
+INTRODUCTION TO EXPRESS
+
+How do we respond to html requests with express?
+
+GET - app.get('route', fn) //route is what route you want, fn is the function you'll fire
+POST - app.post('route', fn)
+DELETE -app.delete('route', fn)
+
+This responds to a get request and provide the user a string depending on 2 seperate routes
+
+var express = require('express');
+
+var app = express(); //this will allow us to fire the express function using the variable app
+
+app.get('/', function(req, res){ //express has added these functions and added functionalities
+  res.send('this is the homepage');
+});
+app.get('/contact', function(req, res){ //express has added these functions and added functionalities
+  res.send('this is the contact page');
+});
+
+app.listen(process.env.PORT, process.env.IP, 3000);
+
   
