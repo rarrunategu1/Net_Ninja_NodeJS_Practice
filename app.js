@@ -9,6 +9,10 @@ app.get('/contact', function(req, res){ //express has added these functions and 
   res.send('this is the contact page');
 });
 
+app.get('/profile/:id', function(req, res){ //if you change the :id to :name you just change it to req.params.name on following line
+  res.send('You requested to see a profile with the id of ' + req.params.id); //req.params.id = is asking for the parameter id in the request
+})
+
 app.listen(process.env.PORT, process.env.IP, 3000);
 
 
