@@ -479,7 +479,28 @@ var server = http.createServer(function(req, res){//this creates a server and wh
      fs.createReadStream(__dirname + '/404.html').pipe(res);
    }
    });
-
+   
+  
 server.listen(process.env.PORT, process.env.IP, 3000); //is the port and IP adddress
 console.log('yo dawgs, now listening to port 3000');
 
+
+ THE NODE PACKAGE MANAGER (NPM)
+   
+   To use Express for routing, we need to know about npm.
+   npm which comes installed with node js is:
+   a bunch of command line tools that will help us install 3rd party packages
+   
+  **npmjs.com  is the website to that has all these pacakages available to us
+  
+  to install express - npm install express on command line
+  to uninstall express - npm uninstall express on command line
+  
+  
+  
+  
+  
+  
+  
+  
+  
