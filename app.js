@@ -11,7 +11,7 @@ res.sendFile(__dirname + '/contact.html');
 });
 
 app.get('/profile/:name', function(req, res){
-var data = {age: 29, job: 'ninja'};
+var data = {age: 29, job: 'ninja', hobbies: ['eating', 'fighting', 'fishing']};
 res.render('viewsprofiles', {person: req.params.name, data: data}); //render basically renders a view to the viewsprofiles.ejs file
 }); //pass data to a view by passing object as a 2nd parameter which is number
 

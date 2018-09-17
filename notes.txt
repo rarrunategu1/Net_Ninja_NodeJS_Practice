@@ -609,4 +609,8 @@ res.render('viewsprofiles', {person: req.params.name, data: data}); //render bas
 
 app.listen(process.env.PORT, process.env.IP, 3000);
 
-  
+
+TEMPLATING ENGINES PART 2
+
+When outputting data you use <%=
+but when it's outputting javascript you can remove the = sign
