@@ -621,3 +621,10 @@ PARTIAL VIEWS
 How do you include a partial view in an ejs file:
 After you 
 <% include
+
+we can create ejs instead of html files for different views
+
+SERVING STATIC FILES & MIDDLEWARE
+
+*attaching a static images or files for ex: a styles.css file to an ejs file would return an error.
+We can use middleware to this for us
