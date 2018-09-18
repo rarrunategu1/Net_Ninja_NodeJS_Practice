@@ -628,3 +628,28 @@ SERVING STATIC FILES & MIDDLEWARE
 
 *attaching a static images or files for ex: a styles.css file to an ejs file would return an error.
 We can use middleware to this for us
+
+QUERY STRINGS
+
+is additional data in an http request in name value pairs
+
+example:
+mysite.com/contact?person=ryu&dept=marketing
+? is the start of the query string, then there are
+name value pair and to add another name value pair using &
+
+So how do we parse the request and pull out the data in code?
+we just run the query property on the request object
+
+app.get('/contact', function(req, res){ 
+console.log(req.query); // we just run the query property on the request object to parse the request and pull data on query
+//console.log above returns { dept: 'marketing', person: 'joe' } on the console because that's what we want to query
+res.render('contact');  }); //you can now return the query in the view by rendering it in the view below
+
+Now you can change the code to below so that it passes any data that we add into the query string through the contact view
+in app.js:
+app.get('/contact', function(req, res){ 
+res.render('contact', {qs: req.query});  
+    
+in contact.ejs file:
+<p><%= qs.dept %> <%= qs.person %></p>
