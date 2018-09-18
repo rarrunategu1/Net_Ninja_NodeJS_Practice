@@ -614,3 +614,10 @@ TEMPLATING ENGINES PART 2
 
 When outputting data you use <%=
 but when it's outputting javascript you can remove the = sign
+
+
+PARTIAL VIEWS
+
+How do you include a partial view in an ejs file:
+After you 
+<% include

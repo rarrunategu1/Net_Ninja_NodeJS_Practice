@@ -1,4 +1,3 @@
-<!--we can make this just like an html document but we can embed javascript and data in it-->
 <!DOCTYPE html>
 <html>
     <head>
@@ -36,14 +35,7 @@
     
     <body>
         <% include nav2.ejs %>
-        <h1>Welcome to the profile of <%= person %></h1> <!--%= is ok for outputting data-->
-        <p><strong>Age: </strong><%= data.age %></p>
-        <p><strong>Job: </strong><%= data.job %></p>
-        <h2>Hobbies</h2>
-        <ul>
-           <% data.hobbies.forEach(function(item){ %>
-               <li><%= item %></li>
-          <% }); %>
-        </ul>
+        <h1>Welcome!</h1>
+        <p>Make yourself comfortable!</p>
     </body>
 </html>
