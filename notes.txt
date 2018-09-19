@@ -653,3 +653,14 @@ res.render('contact', {qs: req.query});
     
 in contact.ejs file:
 <p><%= qs.dept %> <%= qs.person %></p>
+
+POST REQUESTS
+Post is a request method
+It asks the server to accept/store data which is enclosed in the data which is enclosed in the body of the request
+**Often used when submitting forms
+
+using the request object handles parsing the data of a query string but it doesn't handle parsing the post data 
+so we need to add some addtnl middleware for parsing information in the body of a file.
+this middleware is called body-parser on the npm website
+
+another node js package is nodemailer, which will allow you to email information entered by the user to a database or another persons email.

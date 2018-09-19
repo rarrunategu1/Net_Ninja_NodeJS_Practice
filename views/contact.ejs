@@ -30,7 +30,7 @@
         <% include nav2.ejs %>
         <h1>Contact Us!</h1>
         <p>We only accept contact telepathetically.</p>
-        <form id = "contact-form">
+        <form id = "contact-form" method="POST" action="/contact"> <!--action will post to the /contact url-->
             <label for="who">Who do you want to contact?</label>
             <input type="text" name="who" value="<%= qs.person %>"> <!--this will prepopulate data from the query in the url on the form-->
             <label for="department">Which department?</label>
