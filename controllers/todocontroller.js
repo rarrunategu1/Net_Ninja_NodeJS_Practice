@@ -5,7 +5,7 @@ module.exports = function(app){ //app is the variable to run the express package
 //make handlers for different requests we're going to get
 
 app.get('/todo', function(req, res){ //get request for the url itself
-    
+  res.render('todo'); //to render view of todofile(ejs)
 });
 
 app.post('/todo', function(req, res){ //get request for the url itself
