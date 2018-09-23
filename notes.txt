@@ -707,3 +707,14 @@ View
 
 Controller
 - is what bridges the model and view together; data manipulation can be done here.
+
+NoSQL DATABASES
+-Alternative to SQL databases
+-store documents(JSON Objects) in a db, instead of tables with rows and columns
+-works really well with Javascript(and therefore Node.JS)
+
+Once we store the data we can manipulate it and send it back using MongoDB
+
+Found on MongoDB.com or even Mlab.com
+
+To interact with a database in node we can find that on package found on the npm website called mongoose
