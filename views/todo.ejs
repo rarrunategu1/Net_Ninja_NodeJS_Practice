@@ -1,9 +1,10 @@
 <html>
     <head>
         <title>Todo List</title>
-        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
         <link href = "/assets/styles.css" rel = "stylesheet" type = "text/css"/>
-
+        <script type ="text/javascript" src ="../assets/todo-list.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <h1>My Todo List</h1>
@@ -13,10 +14,12 @@
                 <button type="submit">Add Item</button>
             </form>
             <ul>
-                <li>Item 1</li>
-                <li>Item 2</li>
-                <li>Item 3</li> 
+                <% for(var i=0; i < todos.length; i++){ %>
+                <li><%= todos[i].item %></li>
+                <% } %>
             </ul>
         </div>
-    </body>
+        <script type ="text/javascript" src ="../assets/todo-list.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+       </body>
 </html>
