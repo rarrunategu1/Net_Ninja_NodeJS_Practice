@@ -1,7 +1,22 @@
 //This file will control behavior of todolist by manipulating data and handle route. etc
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 
-var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}]; //this is some dummy data for the ul on the ejs file
+//Connect to the database
+mongoose.connect('mongodb://testing123:testing123@ds113703.mlab.com:13703/todo');
+
+//create a schema - it's like a blueprint for our data; it's telling MongoDB what to expect from our tododata
+var todoSchema = new mongoose.Schema({
+  item: String
+});
+
+var Todo = mongoose.model('Todo', todoSchema); // the Todoparameter is a collection that will be stored in mongodb
+var itemOne = Todo({item: 'buy flowers'}).save(function(err){
+  if (err) throw err;
+  console.log('item saved');
+});     
+  
+  var data = [{item: 'get milk'}, {item: 'walk dog'}, {item: 'kick some coding ass'}]; //this is some dummy data for the ul on the ejs file
 var urlencodedParser = bodyParser.urlencoded({extended: false}); //this is the middleware we want to run in the POST request below
 
 module.exports = function(app){ //app is the variable to run the express package in app.js
